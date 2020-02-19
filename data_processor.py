@@ -830,6 +830,7 @@ def count_samples(FLAGS):
 
 def load_data_process(args):
     (image_file, FLAGS, is_train) = args
+    print(image_file)
     try:
         img = cv2.imread(image_file)
         h, w, _ = img.shape
@@ -861,9 +862,9 @@ def load_data(FLAGS, is_train=False):
 
     pool = Pool(FLAGS.nb_workers)
     if sys.version_info >= (3, 0):
-        loaded_data = pool.map(load_data_process, zip(image_files, itertools.repeat(FLAGS), itertools.repeat(is_train))).get(9999999)
+        loaded_data = pool.map(load_data_process, zip(image_files, itertools.repeat(FLAGS), itertools.repeat(is_train)))
     else:
-        loaded_data = pool.map(load_data_process, itertools.izip(image_files, itertools.repeat(FLAGS), itertools.repeat(is_train))).get(9999999)
+        loaded_data = pool.map(load_data_process, itertools.izip(image_files, itertools.repeat(FLAGS), itertools.repeat(is_train)))
     pool.close()
     pool.join()
 
