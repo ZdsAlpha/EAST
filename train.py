@@ -135,7 +135,7 @@ class SmallTextWeight(Callback):
         K.set_value(self.weight, 0)
 
 class ValidationEvaluator(Callback):
-    def __init__(self, validation_data, validation_log_dir, period=5):
+    def __init__(self, validation_data, validation_log_dir, period=1):
         super(Callback, self).__init__()
 
         self.period = period

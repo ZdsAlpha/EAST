@@ -861,9 +861,9 @@ def load_data(FLAGS, is_train=False):
 
     pool = Pool(FLAGS.nb_workers)
     if sys.version_info >= (3, 0):
-        loaded_data = pool.map_async(load_data_process, zip(image_files, itertools.repeat(FLAGS), itertools.repeat(is_train))).get(9999999)
+        loaded_data = pool.map(load_data_process, zip(image_files, itertools.repeat(FLAGS), itertools.repeat(is_train))).get(9999999)
     else:
-        loaded_data = pool.map_async(load_data_process, itertools.izip(image_files, itertools.repeat(FLAGS), itertools.repeat(is_train))).get(9999999)
+        loaded_data = pool.map(load_data_process, itertools.izip(image_files, itertools.repeat(FLAGS), itertools.repeat(is_train))).get(9999999)
     pool.close()
     pool.join()
 
