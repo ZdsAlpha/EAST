@@ -31,7 +31,7 @@ parser.add_argument('--lr_decay_steps', type=int, default=130) # number of steps
 parser.add_argument('--max_epochs', type=int, default=800) # maximum number of epochs
 parser.add_argument('--gpu_list', type=str, default='0') # list of gpus to use
 parser.add_argument('--checkpoint_path', type=str, default='tmp/east_resnet_50_rbox') # path to a directory to save model checkpoints during training
-parser.add_argument('--save_checkpoint_epochs', type=int, default=10) # period at which checkpoints are saved (defaults to every 10 epochs)
+parser.add_argument('--save_checkpoint_epochs', type=int, default=1) # period at which checkpoints are saved (defaults to every 10 epochs)
 parser.add_argument('--restore_model', type=str, default='')
 parser.add_argument('--training_data_path', type=str, default='../data/ICDAR2015/train_data') # path to training data
 parser.add_argument('--validation_data_path', type=str, default='../data/MLT/val_data_latin') # path to validation data
